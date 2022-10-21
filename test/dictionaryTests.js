@@ -25,12 +25,12 @@ const badWords = [
     "cromulent"
 ]
 
-describe("Dictionary Tests:", function () {
+describe("Dictionary Functional Tests:", function () {
 
     for (const name in searches) {
         const search = searches[name];
 
-        describe(`Testing ${name} search...`, function () {
+        describe(`Testing ${name} functionality...`, function () {
             for (const word of goodWords) {
                 it(`Finds the word ${word}`, function () {
                     assert.ok(search(word));
@@ -45,5 +45,21 @@ describe("Dictionary Tests:", function () {
         });
     }
 
-
 });
+
+/*
+describe("Dictionary Speed Tests:", function(){
+    this.timeout(5000); 
+    for (const name in searches) {
+        const search = searches[name];
+
+        it(`Testing ${name} speed...`, function () {
+            for ( let i = 0; i < 10000; i++ ){
+                for (const word of goodWords)
+                    search(word);
+                for (const word of badWords)
+                    search(word);
+            }
+        });
+    };
+});*/
