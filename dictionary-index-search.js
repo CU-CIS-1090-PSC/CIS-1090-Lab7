@@ -17,7 +17,16 @@ function createIndexForDictionary(d){
 }
 
 function indexSearch(needle, haystack, index){
-    //❓ Question 6 TODO: Finish this code
+    let alphabetPosition = getPositionInAlphabet(needle);
+
+    let start = index[alphabetPosition];
+    let end = index[alphabetPosition + 1];
+    
+    for (let i = start; i < end; i++) {
+        if (needle == haystack[i]) {
+            return true;
+        }
+    }
     return false;
 }
 
